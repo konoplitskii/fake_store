@@ -106,7 +106,11 @@ const Cart = () => {
                                :   <h1>Empty basket</h1>
                            }
                            <div className="cart-footer">
-                               <strong>total: $ {amount.toFixed(2)}</strong>
+                               <strong>Total: $ {amount.toFixed(2)}</strong>
+                               {
+                                   cart.items.length > 0 && <button className="btn primary" onClick={()=> dispatch(clearItems())}>Buy now</button>
+                               }
+
                            </div>
                        </div>
                    </div>

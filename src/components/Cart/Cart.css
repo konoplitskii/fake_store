@@ -21,6 +21,7 @@
     border: none;
     margin-left: 20px;
     margin-top: 4px;
+    background: transparent;
 }
 
 .cart-box {
@@ -140,6 +141,11 @@
 
 .cart-footer {
     margin-top: auto;
+}
+
+.cart-footer .btn {
+    display: block;
+    margin-top: 10px;
 }
 
 @media(max-width: 576px) {

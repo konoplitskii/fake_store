@@ -5,6 +5,7 @@ import './Product.css';
 import {addCartItem} from "../../store/slices/cart/slice";
 import {useDispatch} from "react-redux";
 import Preloader from "../../components/Preloader/Preloader";
+import {toast} from "react-toastify";
 
 const Product = () => {
     const [product, setProduct] = useState([]);
@@ -24,6 +25,16 @@ const Product = () => {
     }, []);
 
     const addToCart = (product, id) => {
+        toast.success('Product added', {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
         dispatch(addCartItem({product,id}));
     }
 
