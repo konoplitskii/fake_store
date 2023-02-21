@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './ModalBox.css';
 import {useDispatch, useSelector} from "react-redux";
-import {openModal,closeModal} from "../../store/slices/modal/slice";
+import {closeModal} from "../../store/slices/modal/slice";
 
 const ModalBox = ({showModal,content}) => {
     const dispatch = useDispatch();

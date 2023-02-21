@@ -26,3 +26,9 @@
     background: #000000;
     color: #fff;
 }
+
+@media(max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+    }
+}

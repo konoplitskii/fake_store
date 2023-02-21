@@ -64,3 +64,21 @@
 .card-action-group button:hover svg path {
     fill: #ffffff;
 }
+
+@media(max-width: 992px) {
+    .card-title {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 768px) {
+    .card {
+        width: calc(100% / 12 * 6 - 30px);
+    }
+}
+
+@media(max-width: 576px) {
+    .card {
+        width: calc(100% / 12 * 12 - 30px);
+    }
+}

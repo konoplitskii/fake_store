@@ -140,3 +140,9 @@
 .cart-footer {
     margin-top: auto;
 }
+
+@media(max-width: 576px) {
+    .cart-box {
+        width: 100%;
+    }
+}
