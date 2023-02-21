@@ -26,6 +26,9 @@
     border-radius: 8px;
     color: #fff;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .count-cart {

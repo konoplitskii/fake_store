@@ -17,10 +17,6 @@ const Home = () => {
         dispatch(fetchProducts({categories:'all'}));
     },[])
 
-    useEffect(()=> {
-        console.log('products',products);
-    },[products])
-
     return (
         <div className="home">
             <div className="row">

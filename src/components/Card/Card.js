@@ -6,12 +6,23 @@ import {useDispatch} from "react-redux";
 import Zoom from "../Icons/Zoom";
 import {openModal} from "../../store/slices/modal/slice";
 import MiniCard from "../MiniCard/MiniCard";
+import {toast} from "react-toastify";
 
 const Card = ({item}) => {
     const {id,title,image} = item;
     const dispatch = useDispatch();
 
     const addToCart = (product, id) => {
+        toast.success('Product added', {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
         dispatch(addCartItem({product,id}));
     }
 
