@@ -84,3 +84,11 @@ img {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
+.test {
+  margin-bottom: 15px;
+}
+
+.test span {
+  color: #007f16;
+}

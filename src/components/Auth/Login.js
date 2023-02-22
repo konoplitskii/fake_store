@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {closeModal} from "../../store/slices/modal/slice";
 import axios from "axios";
+import {login} from "../../store/slices/auth/slice";
 
 const Login = ({setIsLogin}) => {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Login = ({setIsLogin}) => {
         }).then(res => {
             localStorage.setItem('userToken', res.data.token);
             dispatch(closeModal({content: '', show: false}))
+            dispatch(login(res.data.token));
         }).catch(error => {
             console.log('error',error.response.data)
             setError(error.response.data)
@@ -51,17 +53,25 @@ const Login = ({setIsLogin}) => {
                     }}
                 />
             </div>
-            {/*<button*/}
-            {/*    className="change"*/}
-            {/*    onClick={()=> setIsLogin(false)}*/}
-            {/*>*/}
-            {/*    Register*/}
-            {/*</button>*/}
+            <button
+                className="change"
+                onClick={()=> setIsLogin(false)}
+            >
+                Register
+            </button>
             {
                 error
                     ? <div className="error">{error}</div>
                     : null
             }
+
+            <div >
+                Example data fake store api
+            </div>
+            <div className="test">
+                <strong> login: </strong><span>johnd</span>
+                <strong> password:</strong> <span>m38rmF$</span>
+            </div>
             <div className="auth-action">
                 <button className="btn primary"  onClick={loginHandler}>Submit</button>
                 <button className="btn" onClick={() => {

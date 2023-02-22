@@ -8,10 +8,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {openModal} from "../../store/slices/modal/slice";
 import Auth from "../Auth/Auth";
 import {openCart} from "../../store/slices/cart/slice";
+import Exit from "../Icons/Exit";
+import {logout} from "../../store/slices/auth/slice";
 
 const Header = () => {
     const dispatch = useDispatch();
     const cart = useSelector( state => state.cart);
+    const token = useSelector( state => state.auth);
     const [count,setCount] = useState(1);
 
     useEffect(()=> {
@@ -20,6 +23,10 @@ const Header = () => {
         },0)
         setCount(sum)
     },[cart])
+
+    useEffect(()=> {
+        console.log('token',token);
+    },[token])
 
     return (
         <header className="header">
@@ -38,11 +45,25 @@ const Header = () => {
                             : null
                         }
                     </button>
-                    {/*<button className="action-btn" onClick={()=> {*/}
-                    {/*    dispatch(openModal(<Auth/>))*/}
-                    {/*}}>*/}
-                    {/*    <User/>*/}
-                    {/*</button>*/}
+
+                    {
+                        !token.userToken && <button className="action-btn" onClick={()=> {
+                            dispatch(openModal(<Auth/>))
+                        }}>
+                            <User/>
+                        </button>
+                    }
+
+                    {
+                        token.userToken
+                            ?
+                                <button className="action-btn" onClick={()=> {
+                                    dispatch(logout())
+                                }}>
+                                    <Exit/>
+                                </button>
+                            : null
+                    }
                 </div>
             </div>
         </header>

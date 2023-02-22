@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {closeModal} from "../../store/slices/modal/slice";
 import axios from "axios";
+import {registration} from "../../store/slices/auth/slice";
 
 const Registration = ({setIsLogin}) => {
     const dispatch = useDispatch();
@@ -18,11 +19,12 @@ const Registration = ({setIsLogin}) => {
                 password,
             }
         }).then(res => {
-            console.log('res',res);
+            console.log('res',res.data);
             dispatch(closeModal({content: '', show: false}))
+            dispatch(registration('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXIiOiJqb2huZCIsImlhdCI6MTY3NzA2Mjk2NX0.82J8r2jHusjhmdDa0j0FlobEoew2x--ovQR94Q1xMMo'))
         }).catch(error => {
-            console.log('error',error.response.data)
-            setError(error.response.data)
+            console.log('error',error?.response?.data || error.message)
+            setError(error?.response?.data || error.message)
         })
     }
 
