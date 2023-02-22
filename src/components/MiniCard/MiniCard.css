@@ -1,0 +1,21 @@
+.mini-card {
+    margin-top: 40px;
+}
+
+.mini-card p {
+    color: #808080FF;
+    line-height: 150%;
+}
+
+.mini-card-show img {
+    max-height: 200px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mini-card-btn {
+    display: block;
+    margin-top: 20px;
+}

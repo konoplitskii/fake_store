@@ -1,0 +1,43 @@
+.header {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.header-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-page {
+    display: flex;
+    margin-left: -3px;
+    margin-right: -3px;
+}
+
+.action-btn {
+    background: #000000;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 8px;
+    color: #fff;
+    position: relative;
+}
+
+.count-cart {
+    position: absolute;
+    right: -5px;
+    top: -6px;
+    padding: 1px 4px;
+    background: #e72323;
+    border-radius: 50px;
+    height: 15px
+}
+
+.action-btn svg path {
+    fill: #fff;
+}

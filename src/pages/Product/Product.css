@@ -1,0 +1,37 @@
+.product-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.16);
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-show {
+    width: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.product-show img {
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.product-info {
+    width: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.product-info p {
+    color: #808080FF;
+    line-height: 150%;
+}
+
+.product-btn {
+    display: block;
+    margin-top: 15px;
+}
