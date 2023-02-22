@@ -4,9 +4,11 @@ import {Link, useParams} from "react-router-dom";
 import './Product.css';
 import {addCartItem} from "../../store/slices/cart/slice";
 import {useDispatch} from "react-redux";
+import Preloader from "../../components/Preloader/Preloader";
 
 const Product = () => {
     const [product, setProduct] = useState([]);
+    const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     const params = useParams();
 
@@ -16,6 +18,7 @@ const Product = () => {
                 `https://fakestoreapi.com/products/${params.id}`,
             );
             setProduct(data);
+            setLoading(false);
         };
         productFetch();
     }, []);
@@ -25,33 +28,39 @@ const Product = () => {
     }
 
     return (
-        <div>
-            <div className="product-box">
-                <div className="product-show">
-                    <img src={product.image} alt={product.title}/>
-                </div>
-                <div className="product-info">
-                    <h1>{product.title}</h1>
-                   <p>
-                       {product.description}
-                   </p>
-                    <strong>
-                        Price: {product.price} $
-                    </strong>
-                    <button
-                        className="product-btn btn"
-                        onClick={()=> {
-                            addToCart(product, product.id)
-                        }}
-                    >Add cart
-                    </button>
-                </div>
-            </div>
-            <Link className="btn" to="/">
-                {' '}
-                Go home
-            </Link>
-        </div>
+        <>
+            {
+                loading
+                ? <Preloader/>
+                : <div>
+                        <div className="product-box">
+                            <div className="product-show">
+                                <img src={product.image} alt={product.title}/>
+                            </div>
+                            <div className="product-info">
+                                <h1>{product.title}</h1>
+                                <p>
+                                    {product.description}
+                                </p>
+                                <strong>
+                                    Price: {product.price} $
+                                </strong>
+                                <button
+                                    className="product-btn btn"
+                                    onClick={()=> {
+                                        addToCart(product, product.id)
+                                    }}
+                                >Add cart
+                                </button>
+                            </div>
+                        </div>
+                        <Link className="btn" to="/">
+                            {' '}
+                            Go home
+                        </Link>
+                    </div>
+            }
+        </>
     );
 };
 
